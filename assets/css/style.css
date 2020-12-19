@@ -1,7 +1,6 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
-  background-color:;
 }
 
 a {
@@ -63,9 +62,11 @@ h1, h2, h3, h4, h5, h6 {
   background: #040b14;
   overflow-y: auto;
 }
+
 #header .profile{
   margin-top: 24px;
 }
+
 #header .profile img {
   margin: 15px auto;
   display: block;
@@ -82,6 +83,7 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   font-family: "Poppins", sans-serif;
 }
+
 #header .profile h2 {
   font-size: 20px;
   margin: 0;
@@ -179,8 +181,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Mobile Navigation */
 .mobile-nav-toggle {
   position: fixed;
-  right: 15px;
-  top: 15px;
+  right: 20px;
+  top: 30px;
   z-index: 9998;
   border: 0;
   background: none;
@@ -205,7 +207,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav-active .mobile-nav-toggle i {
-  color: #fff;
+  color: #A5D6A7;
 }
 
 /*--------------------------------------------------------------
@@ -214,7 +216,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/hero-bg.jpg") top center;
+  background: url("../img/IMG_2908.jpg") center center;
   background-size: cover;
 }
 
@@ -245,6 +247,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 8px;
   color: #fff;
 }
+
 #hero h3{
   font-size: 36px;
   color: #fff;
@@ -297,9 +300,13 @@ section {
   padding: 60px 0;
   overflow: hidden;
 }
-
+.svg-position{
+  position: absolute;
+  bottom: -15%;
+  z-index: 1;
+}
 .section-bg {
-  background: #f5f8fd;
+  background: #123456;
 }
 
 .section-title {
@@ -314,10 +321,14 @@ section {
   position: relative;
   color: #173b6c;
 }
+.section-p{
+  font-size: 20px;
+  line-height: 2;
+}
 
 .section-title h2::after {
   content: '';
-  position: absolute;
+  position: absolute;s
   display: block;
   width: 50px;
   height: 3px;
@@ -329,7 +340,6 @@ section {
 .section-title p {
   margin-bottom: 0;
 }
-
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
@@ -351,7 +361,7 @@ section {
 .about .content ul i {
   font-size: 20px;
   padding-right: 2px;
-  color: #149ddd;
+  color: #000000;
 }
 
 .about .content p:last-child {
@@ -420,11 +430,11 @@ section {
 .skills .progress .skill {
   padding: 10px 0;
   margin: 0 0 6px 0;
-  text-transform: uppercase;
   display: block;
+  font-size: 16px;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  color: #050d18;
+  color: #fff;
 }
 
 .skills .progress .skill .val {
@@ -438,9 +448,12 @@ section {
 
 .skills .progress-bar {
   width: 1px;
-  height: 10px;
+  height: 15px;
   transition: .9s;
   background-color: #149ddd;
+}
+.skills .progress-text{
+  color: #fff;
 }
 
 /*--------------------------------------------------------------
