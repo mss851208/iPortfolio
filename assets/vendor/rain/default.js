@@ -1,4 +1,4 @@
-jQuery('#example2').raindrops({
+jQuery('#portfolio').raindrops({
     color: "#123456",
     canvasHeight: 240
 });

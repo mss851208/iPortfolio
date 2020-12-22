@@ -2,11 +2,6 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
 }
-
-a {
-  color: #A5D6A7;
-}
-
 a:hover {
   color: #A5D6A7;
   text-decoration: none;
@@ -27,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50px;
   right: 15px;
   bottom: 15px;
-  background: #149ddd;
+  background: #843813;
   color: #fff;
   transition: display 0.5s ease-in-out;
   z-index: 99999;
@@ -42,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .back-to-top:hover {
   color: #fff;
-  background: #2eafec;
+  background: #843813;
   transition: background 0.2s ease-in-out;
 }
 
@@ -116,7 +111,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header .profile .social-links a:hover {
-  background: #A5D6A7;
+  background: #843813;
   color: #fff;
   text-decoration: none;
 }
@@ -175,7 +170,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu a:hover i, .nav-menu .active > a i, .nav-menu li:hover > a i {
-  color: #A5D6A7;
+  color: #843813;
 }
 
 /* Mobile Navigation */
@@ -195,7 +190,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav-toggle i {
-  color: #A5D6A7;
+  color: #843813;
 }
 
 .mobile-nav-active {
@@ -207,7 +202,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav-active .mobile-nav-toggle i {
-  color: #A5D6A7;
+  color: #843813;
 }
 
 /*--------------------------------------------------------------
@@ -332,7 +327,7 @@ section {
   display: block;
   width: 50px;
   height: 3px;
-  background: #149ddd;
+  background: #843813;
   bottom: 0;
   left: 0;
 }
@@ -425,6 +420,7 @@ section {
   height: 50px;
   display: block;
   background: none;
+  margin: 10px 0;
 }
 
 .skills .progress .skill {
@@ -444,13 +440,15 @@ section {
 
 .skills .progress-bar-wrap {
   background: #dce8f8;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .skills .progress-bar {
   width: 1px;
   height: 15px;
   transition: .9s;
-  background-color: #149ddd;
+  background-color: #843813;
 }
 .skills .progress-text{
   color: #fff;
@@ -1111,3 +1109,5 @@ section {
     padding-right: 20px 15px;
   }
 }
+
+
