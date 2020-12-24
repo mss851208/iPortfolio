@@ -1162,7 +1162,12 @@ section {
 }
 @media (max-width: 576px) {
   .mouse-wrap{
-    bottom: 10%;
+    bottom: 15%;
+  }
+}
+@media (max-width: 375px) {
+  .mouse-wrap{
+    bottom: 5%;
   }
 }
 .mouse {
