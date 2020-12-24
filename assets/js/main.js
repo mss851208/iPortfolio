@@ -191,6 +191,35 @@
   });
 
 
-  
+  class Cursor {
+    constructor(el) {
+        this.DOM = {el: el};
+        this.DOM.circle = this.DOM.el.querySelector('.cursor__inner--circle');
+        this.bounds = this.DOM.circle.getBoundingClientRect();
+        this.lastMousePos = {x:0, y:0};
+        this.scale = 1;
+        this.lastScale = 1;
+        this.lastY = 0;
+        requestAnimationFrame(() => this.render());
+    }
+    render() {
+        this.lastMousePos.x = MathUtils.lerp(this.lastMousePos.x, mousepos.x - this.bounds.width/2, 0.15);
+        this.lastMousePos.y = MathUtils.lerp(this.lastMousePos.y, mousepos.y - this.bounds.height/2, 0.15);
+        this.direction = this.lastY - mousepos.y > 0 ? 'up' : 'down';
+        this.lastScale = MathUtils.lerp(this.lastScale, this.scale, 0.15);
+        this.DOM.circle.style.transform = `translateX(${(this.lastMousePos.x)}px) translateY(${this.lastMousePos.y}px) scale(${this.lastScale})`;
+        this.lastY = mousepos.y;
+        requestAnimationFrame(() => this.render());
+    }
+    enter() {
+        this.scale = 1.5;
+    }
+    leave() {
+        this.scale = 1;
+    }
+    click() {
+        this.lastScale = .4;
+    }
+}
 
 })(jQuery);

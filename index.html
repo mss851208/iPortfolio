@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta name="format-detection" content="telephone=no">
 
-  <title>iPortfolio Bootstrap Template - Index</title>
+  <title>鄒汶峻 | Wen Jun</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -64,6 +64,7 @@
           <li><a href="#skills"><i class="bx bx-file-blank"></i> <span>技能</span></a></li>
           <li><a href="#resume"><i class="bx bx-server"></i> 學路歷程</a></li>
           <li><a href="#contact"><i class="bx bx-envelope"></i> 聯繫我</a></li>
+          <li><a href="https://mss851208.github.io/Portfolio/"><i class="bx bx-star"></i> 作品集</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
@@ -107,16 +108,16 @@
               <div class="content mt-2">
                 <ul>
                   <li class="mb-2 ul-style-none">
-                    <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+                    <i class="fa fa-birthday-cake text-p" aria-hidden="true"></i>
                     <strong> 生日: </strong> 1996/12/08
                   </li>
 
                   <li class="mb-2">
-                    <i class="fa fa-heart" aria-hidden="true"></i>
+                    <i class="fa fa-heart text-p" aria-hidden="true"></i>
                     <strong> 興趣 : </strong> 打網球、保齡球、聽Podcast
                   </li>
                   <li class="mb-2">
-                    <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                    <i class="fa fa-location-arrow text-p" aria-hidden="true"></i>
                     <strong> 住址 : </strong> 新竹市東區金山七街
                   </li>
                 </ul>
@@ -167,7 +168,7 @@
         </div>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#123456" fill-opacity="1"
+        <path fill="#5C6B73" fill-opacity="1"
           d="M0,224L80,197.3C160,171,320,117,480,117.3C640,117,800,171,960,186.7C1120,203,1280,181,1360,170.7L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
         </path>
       </svg>
@@ -266,7 +267,7 @@
     <!-- ======= Resume Section ======= -->
     <section id="resume" class="resume py-0">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#123456" fill-opacity="1"
+        <path fill="#5C6B73" fill-opacity="1"
           d="M0,64L80,90.7C160,117,320,171,480,165.3C640,160,800,96,960,96C1120,96,1280,160,1360,192L1440,224L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z">
         </path>
       </svg>
@@ -363,7 +364,7 @@
 
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#123456" fill-opacity="1"
+        <path fill="#5C6B73" fill-opacity="1"
           d="M0,256L48,240C96,224,192,192,288,186.7C384,181,480,203,576,208C672,213,768,203,864,186.7C960,171,1056,149,1152,165.3C1248,181,1344,235,1392,261.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
         </path>
       </svg>
@@ -431,6 +432,15 @@
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
+  <div class="cursor"></div>
+  <div class="cursor2"></div>
+  <script>
+    var cursor = document.querySelector(".cursor");
+    var cursor2 = document.querySelector(".cursor2");
+    document.addEventListener("mousemove",function(e){
+      cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+    });
+  </script>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
