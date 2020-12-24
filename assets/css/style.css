@@ -1165,7 +1165,7 @@ section {
     bottom: 15%;
   }
 }
-@media (max-width: 375px) {
+@media (max-width: 374px) {
   .mouse-wrap{
     bottom: 5%;
   }
