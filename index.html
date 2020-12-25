@@ -5,6 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta name="format-detection" content="telephone=no">
+  <meta name="author" content="汶峻">
+  <meta name="copyright" content="汶峻">
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:title" content="汶峻" />
+  <meta property="og:description" content="汶峻" />
+  <meta property="og:site_name" content="汶峻" />
+
 
   <title>鄒汶峻 | Wen Jun</title>
   <meta content="" name="description">
@@ -12,7 +19,6 @@
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link
@@ -28,9 +34,6 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <!--jquery 差件-->
-
-
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
@@ -38,7 +41,14 @@
 </head>
 
 <body>
-
+  <div class="loading-wrap">
+    <div class="loading">
+      <div class="spinner">
+        <div class="cube1"></div>
+        <div class="cube2"></div>
+      </div>
+    </div>
+  </div>
   <!-- ======= Mobile nav toggle button ======= -->
   <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
 
@@ -50,8 +60,10 @@
         <h1 class="text-light"><a href="index.html">鄒汶峻</a></h1>
         <h2 class="text-light">Zow Wen Jun</h2>
         <div class="social-links mt-3 text-center">
-          <a href="https://www.youtube.com/channel/UCzi-vEShsa2NqZBw8VeMJug" class="youtube"><i class="bx bxl-youtube"></i></a>
-          <a href="https://www.facebook.com/people/%E9%84%92%E6%B1%B6%E5%B3%BB/100005336584284" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.youtube.com/channel/UCzi-vEShsa2NqZBw8VeMJug" class="youtube"><i
+              class="bx bxl-youtube"></i></a>
+          <a href="https://www.facebook.com/people/%E9%84%92%E6%B1%B6%E5%B3%BB/100005336584284" class="facebook"><i
+              class="bx bxl-facebook"></i></a>
           <a href="https://www.instagram.com/jun12_o8/" class="instagram"><i class="bx bxl-instagram"></i></a>
           <a href="https://www.behance.net/mss8512084b55" class="behance"><i class="bx bxl-behance"></i></a>
         </div>
@@ -64,7 +76,8 @@
           <li><a href="#skills"><i class="bx bx-file-blank"></i> <span>技能</span></a></li>
           <li><a href="#resume"><i class="bx bx-server"></i> 學路歷程</a></li>
           <li><a href="#contact"><i class="bx bx-envelope"></i> 聯繫我</a></li>
-          <li><a href="https://mss851208.wixsite.com/zouwenjun/%E4%BD%9C%E5%93%81%E9%9B%86"><i class="bx bx-star"></i> 作品集</a></li>
+          <li><a href="https://mss851208.wixsite.com/zouwenjun/%E4%BD%9C%E5%93%81%E9%9B%86"><i class="bx bx-star"></i>
+              作品集</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
@@ -380,7 +393,7 @@
         <div class="row justify-content-center" data-aos="fade-in">
           <div class="col-lg-6 d-flex justify-content-center align-items-center my-5 my-lg-0">
             <div class="info">
-              <div class="email d-flex justify-content-lg-center align-items-center" >
+              <div class="email d-flex justify-content-lg-center align-items-center">
                 <i class="icofont-envelope mx-3"></i>
                 <div class="contact-text">
                   <h4>電子信箱:</h4>
@@ -391,7 +404,7 @@
           </div>
           <div class="col-lg-6 d-flex justify-content-center align-items-center my-5 my-lg-0">
             <div class="info">
-              <div class="email d-flex justify-content-lg-center align-items-center" >
+              <div class="email d-flex justify-content-lg-center align-items-center">
                 <i class="icofont-phone mx-3"></i>
                 <div class="contact-text">
                   <h4>聯絡電話:</h4>
@@ -437,7 +450,7 @@
   <script>
     var cursor = document.querySelector(".cursor");
     var cursor2 = document.querySelector(".cursor2");
-    document.addEventListener("mousemove",function(e){
+    document.addEventListener("mousemove", function (e) {
       cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
     });
   </script>
@@ -465,7 +478,11 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-
+  <script>
+    $(window).on('load',function(){
+        $(".loading-wrap").fadeOut(1000);
+    });
+</script>
 
 
 </body>
