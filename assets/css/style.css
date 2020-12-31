@@ -495,7 +495,10 @@ section {
   width: 1px;
   height: 15px;
   transition: .9s;
-  background-color: #253237;
+  background: linear-gradient(44deg, #173642 38%, #054745 98%);
+  background: -moz-linear-gradient(44deg, #173642 38%, #054745 98%);
+  background: -webkit-linear-gradient(44deg, #173642 38%, #054745 98%);
+  background: -o-linear-gradient(44deg, #173642 38%, #054745 98%);
 }
 .skills .progress-text{
   color: #fff;
