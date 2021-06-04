@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>待辦清單</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+
+        /* css reset */
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        blockquote,
+        q {
+            quotes: none;
+        }
+
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url(image/todo_bg.jpg);
+
+        }
+
+        /* css reset */
+
+
+        .todo_wrap {
+            width: 450px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            background-image: url(image/todo_area_bg1.png);
+            background-size: cover;
+            background-position: top center;
+            position: relative;
+        }
+
+        .todo_area {
+            width: 80%;
+            margin-top: 52%;
+        }
+
+        .todo_area h3 {
+            font-size: 2.3em;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .todo_area .inputs {
+            display: flex;
+            justify-content: center;
+            margin-top: 10%;
+        }
+
+        .todo_area .input_value {
+            width: 100%;
+            height: 35px;
+            padding-left: 20px;
+            border: none;
+            border: 2px solid black;
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+        }
+
+        .todo_area .input_value:focus {
+            outline: none;
+        }
+
+        .todo_area .input_button {
+            border: none;
+            margin-left: -2px;
+            padding-right: 15px;
+            padding-left: 10px;
+            border: 2px solid black;
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+            background-color: rgb(243, 243, 243);
+            cursor: pointer;
+        }
+
+        .todo_area .todolist {
+            width: 100%;
+            height: 85%;
+            overflow-y: auto;
+        }
+
+        .todo_area .todolist::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(99, 99, 99, 0.3);
+            background-color: #F5F5F5;
+        }
+
+        .todo_area .todolist::-webkit-scrollbar {
+            width: 3px;
+            background-color: #F5F5F5;
+        }
+
+        .todo_area .todolist::-webkit-scrollbar-thumb {
+            background-color: #797979;
+        }
+
+        .todo_area .todolist label {
+            display: flex;
+            font-weight: 500;
+            font-size: 18px;
+            margin: 20px 0;
+            padding: 15px 5px 15px 0;
+            border-bottom: 2px solid black;
+        }
+
+        .todo_area .todolist li input {
+            width: 16px;
+            height: 16px;
+            margin-right: 15px;
+        }
+
+        .todo_area .todolist li i {
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 1.5em;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .cb {
+            box-shadow: 0 0 0 0.125em rgba(0, 0, 0, 0.75) inset;
+            display: inline-block;
+            position: relative;
+            width: 1.5em;
+            height: 1.5em;
+            vertical-align: middle;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .cb:before,
+        .cb:after {
+            content: "";
+            display: block;
+            position: absolute;
+        }
+
+        .cb:before {
+            animation: eraseA 0.5s steps(1) forwards;
+            background: url("https://s22.postimg.cc/fi4blx4gx/checkmark.png") 0 100%/1.2em 1.35em no-repeat;
+            bottom: 0.2em;
+            left: 0.3em;
+            width: 0;
+            height: 1.35em;
+        }
+
+        .cb:after {
+            animation: eraseB 0.5s linear forwards;
+            background: linear-gradient(rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 50%) 11.2em 0, linear-gradient(#c8646e, #c8646e) 11.2em 0, linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6) 0.1em, rgba(255, 255, 255, 0) 0.1em, rgba(255, 255, 255, 0) 0.2em, rgba(0, 0, 0, 0.2) 0.2em, rgba(0, 0, 0, 0.2) 0.3em, rgba(0, 0, 0, 0) 0.3em) 9.8em 0/0.3em 100%, repeating-linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6) 0.1em, rgba(255, 255, 255, 0) 0.1em, rgba(255, 255, 255, 0) 0.2em) 10.2em 0/0.5em 100%, linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6) 0.1em, rgba(255, 255, 255, 0) 0.1em, rgba(255, 255, 255, 0) 0.2em, rgba(0, 0, 0, 0.2) 0.2em, rgba(0, 0, 0, 0.2) 0.3em, rgba(0, 0, 0, 0) 0.3em) 10.8em 0/0.3em 100%, linear-gradient(rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0.6) 35%, rgba(255, 255, 255, 0.6) 65%, rgba(255, 255, 255, 0) 65%) 9.7em 0, linear-gradient(#b4b4b4, #b4b4b4) 9.7em 0, linear-gradient(rgba(0, 0, 0, 0.1) 27%, rgba(0, 0, 0, 0) 27%, rgba(0, 0, 0, 0) 73%, rgba(0, 0, 0, 0.2) 73%) 2em 0, linear-gradient(#f0d000, #f0d000) 2em 0, linear-gradient(-14deg, #1e1e1e 18%, rgba(30, 30, 30, 0) 20%) 0 0/0.5em 0.5em, linear-gradient(14deg, rgba(30, 30, 30, 0) 80%, #1e1e1e 83%) 0 0.5em/0.5em 0.5em, linear-gradient(-14deg, #d2a078 48%, rgba(210, 160, 120, 0) 50%) 0 0/2em 0.5em, linear-gradient(14deg, rgba(0, 0, 0, 0) 48%, rgba(0, 0, 0, 0.1) 50%) 0 0.5em/2em 0.5em, linear-gradient(14deg, rgba(210, 160, 120, 0) 48%, #d2a078 50%) 0 0.5em/2em 0.5em;
+            background-repeat: no-repeat;
+            border-radius: 0 0.1em 0.1em 0;
+            opacity: 0;
+            visibility: hidden;
+            transform-origin: 0 0.25em;
+            width: 12em;
+            height: 1em;
+        }
+
+        .cb:checked {
+            background-color: transparent;
+        }
+
+        .cb:checked:before {
+            animation: drawA 0.5s linear forwards;
+        }
+
+        .cb:checked:after {
+            animation: drawB 0.5s linear;
+        }
+
+        .cb:focus {
+            outline: transparent;
+        }
+
+        .cb:focus+span {
+            color: rgba(0, 0, 0, 0.75);
+            outline: transparent;
+        }
+
+        .pristine:before,
+        .pristine:after {
+            animation: none;
+        }
+
+        @keyframes drawA {
+
+            from,
+            5% {
+                width: 0;
+                height: 1.35em;
+            }
+
+            90%,
+            to {
+                width: 1.2em;
+                height: 1.35em;
+            }
+        }
+
+        @keyframes drawB {
+            from {
+                opacity: 0;
+                transform: translate(0em, -0.5em) rotate(-50deg);
+                visibility: visible;
+            }
+
+            5% {
+                opacity: 1;
+                transform: translate(0em, 0.3em) rotate(-60deg);
+            }
+
+            17% {
+                transform: translate(0.25em, 0.8em) rotate(-65deg);
+            }
+
+            79% {
+                transform: translate(1.1em, -0.14em) rotate(-63deg);
+            }
+
+            90% {
+                opacity: 1;
+                transform: translate(1.2em, -0.15em) rotate(-63deg);
+            }
+
+            to {
+                opacity: 0;
+                transform: translate(1.25em, -1.7em) rotate(-63deg);
+            }
+        }
+
+        @keyframes eraseA {
+            from {
+                width: 1.2em;
+                height: 1.35em;
+            }
+
+            10% {
+                width: 1.2em;
+                height: 1.08em;
+            }
+
+            27% {
+                width: 1.2em;
+                height: 0.81em;
+            }
+
+            36% {
+                width: 1.2em;
+                height: 0.7em;
+            }
+
+            45% {
+                width: 1.2em;
+                height: 0.55em;
+            }
+
+            55% {
+                width: 1.2em;
+                height: 0.35em;
+            }
+
+            80%,
+            to {
+                width: 1.2em;
+                height: 0;
+            }
+        }
+
+        @keyframes eraseB {
+            from {
+                opacity: 0;
+                transform: translate(0.6em, -12.2em) rotate(90deg);
+                visibility: visible;
+            }
+
+            10% {
+                opacity: 1;
+                transform: translate(1.2em, -12.05em) rotate(90deg);
+            }
+
+            20% {
+                transform: translate(0.6em, -11.9em) rotate(90deg);
+            }
+
+            30% {
+                transform: translate(1.2em, -11.75em) rotate(90deg);
+            }
+
+            40% {
+                transform: translate(0.6em, -11.6em) rotate(90deg);
+            }
+
+            50% {
+                transform: translate(1.2em, -11.45em) rotate(90deg);
+            }
+
+            60% {
+                transform: translate(0.6em, -11.3em) rotate(90deg);
+            }
+
+            70% {
+                transform: translate(1.2em, -11.15em) rotate(90deg);
+            }
+
+            80% {
+                transform: translate(0.6em, -11em) rotate(90deg);
+            }
+
+            90% {
+                opacity: 1;
+                transform: translate(2em, -12.5em) rotate(100deg);
+            }
+
+            to {
+                opacity: 0;
+                transform: translate(2em, -12.5em) rotate(100deg);
+            }
+        }
+
+        .cb_line {
+            user-select: none;
+            font-size: 18px;
+        }
+
+        .cb_checkbox:checked+.cb_line {
+            position: relative;
+        }
+
+        .cb_checkbox:checked+.cb_line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto 0;
+            width: 0;
+            height: 2px;
+            background-color: rgb(92, 92, 92);
+            animation: line 0.5s forwards;
+        }
+
+        @keyframes line {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+
+        @media (max-width: 576px) {
+            .todo_area {
+                width: 80%;
+            }
+
+            .todo_area h3 {
+                margin-top: 50%;
+            }
+
+            .todo_area{
+                margin-top: 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="todo_wrap">
+        <div class="todo_area">
+            <div class="todolist">
+                <h3>To Do List</h3>
+                <div class="inputs">
+                    <input type="text" class="input_value" placeholder="我要記得....">
+                    <button class="input_button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                </div>
+                <ul class="list list_checkbox">
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // li 陣列
+    //若 || 左邊為 空值 就執行右邊 
+    var listItem = JSON.parse(localStorage.getItem('listItem')) || [];
+    // 送出按鈕
+    var inputButton = document.querySelector('.input_button');
+    // ul 範圍(刪除按鈕用)
+    var list = document.querySelector('.list');
+    // ul 範圍(checkbox按鈕用)
+    var listCheckbox = document.querySelector('.list_checkbox');
+    // input 裡面的值
+    var inputValue = document.querySelector('.input_value');
+
+    //更新 list 內容(function)
+    function upDateTodolist() {
+        //先 var 一個空值要塞入 ul 裡面的東西
+        var str = '';
+        var len = listItem.length;
+        for (var i = 0; i < len; i++) {
+            //把li裡面東西塞入str，在印出到list內
+            // 三則運算 : 如果是問號左右邊內容是 true，就執行冒號右邊內容  ( 1+1=2 ? 2 : '因為問號兩邊 true，所以我被執行了。')
+            //${} : 取代 + + ; 若用到 ${} 最左右兩邊符號要用 ` `
+            str += `<li><label><input class="cb pristine cb_checkbox" type="checkbox" ${listItem[i].done ? 'checked' : ''} data-checkboxnum="${i}"><span class="cb_line"> ${listItem[i].todo} </span><i class="fa fa-trash-alt" aria-hidden="true" data-trashnum="${i}"></i></label></li>`
+        }
+        list.innerHTML = str;
+        inputValue.value = '';
+    }
+
+    //新增 代辦事項(click function)
+    function addItem() {
+        var item = inputValue.value;
+        // 判斷是否空值，若不是執行 else裡面內容
+        if (item == '') {
+            alert('請輸入待辦事項 !!');
+        } else {
+            //push陣列裡面的內容 todo:item 、 done:false 到陣列裡面
+            listItem.push({
+                todo: item,
+                done: false,
+            });
+            //將 陣列 轉 字串 然後存入 localStorage裡面
+            localStorage.setItem('listItem', JSON.stringify(listItem));
+            //更新 list 內容
+            upDateTodolist();
+        }
+    }
+
+    //刪除 代辦事項(click function)
+    function removeItem(e) {
+        var trashnum = e.target.dataset.trashnum;
+        //目前所點擊到的區域的html標籤名稱
+        var el = e.target.nodeName;
+        //因為只要偵測 trash icon 的標籤，所以設定如果不等於 I 就不執行以下程式，若等於就執行
+        if (el !== 'I') {
+            return
+        };
+        //刪除列表 從第幾項開始、刪除幾個
+        listItem.splice(trashnum, 1);
+        //將 陣列 轉 字串 然後存入 localStorage裡面
+        localStorage.setItem('listItem', JSON.stringify(listItem));
+        //更新 list 內容
+        upDateTodolist();
+    }
+
+    // checkbox 判斷(click function)
+    function toggleCheckbox(e) {
+        //若不是跟 input標籤 matches到 就不執行，若有就執行下面程式
+        if (!e.target.matches('input')) return;
+        var el = e.target;
+        var elC = el.dataset.checkboxnum;
+        //listItem 陣列內 [當下點擊 checkboxnum ]內的 done，改為 true 或是 false(預設 done 是 false) ; ! 若是 true 就改為 false，若是 false 就改為 true 
+        listItem[elC].done = !listItem[elC].done;
+        //將 陣列 轉 字串 然後存入 localStorage裡面
+        localStorage.setItem('listItem', JSON.stringify(listItem));
+        // 橡皮擦擦拭 checkbox 動畫 
+        document.querySelector(".todolist").addEventListener("click", e => {
+            let checkboxCL = e.target.classList,
+                pState = "pristine";
+            if (checkboxCL.contains(pState))
+                checkboxCL.remove(pState);
+        });
+    }
+
+    //更新 list 內容
+    upDateTodolist();
+    //新增 代辦事項 
+    inputButton.addEventListener('click', addItem);
+    //刪除 代辦事項 ; 因為要動態監聽所有事項，所以要用 list 外層來監聽
+    list.addEventListener('click', removeItem);
+    // checkbox 判斷 ; 因為要動態監聽所有事項，所以要用 listCheckbox 外層來監聽
+    listCheckbox.addEventListener('click', toggleCheckbox);
+</script>
+
+</html>
