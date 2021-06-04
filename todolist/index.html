@@ -496,7 +496,7 @@
                 margin-top: 50%;
             }
 
-            .todo_area{
+            .todo_area {
                 margin-top: 5%;
             }
         }
@@ -547,12 +547,12 @@
     }
 
     //新增 代辦事項(click function)
-    function addItem() {
+    function addItem(e) {
         var item = inputValue.value;
         // 判斷是否空值，若不是執行 else裡面內容
         if (item == '') {
-            alert('請輸入待辦事項 !!');
-        } else {
+            return
+        } else if (e.keyCode == '13' || e.target.nodeName == 'BUTTON' || e.target.nodeName == 'I') {
             //push陣列裡面的內容 todo:item 、 done:false 到陣列裡面
             listItem.push({
                 todo: item,
@@ -603,8 +603,10 @@
 
     //更新 list 內容
     upDateTodolist();
-    //新增 代辦事項 
+    //新增 代辦事項(傳送案紐) 
     inputButton.addEventListener('click', addItem);
+    //新增 代辦事項 (傳送Enter)
+    inputValue.addEventListener('keydown', addItem);
     //刪除 代辦事項 ; 因為要動態監聽所有事項，所以要用 list 外層來監聽
     list.addEventListener('click', removeItem);
     // checkbox 判斷 ; 因為要動態監聽所有事項，所以要用 listCheckbox 外層來監聽
