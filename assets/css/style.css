@@ -711,9 +711,9 @@ section {
   right: 0;
 }
 
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
   .mouse-wrap {
-    bottom: 15%;
+    bottom: 5%;
   }
 }
 
@@ -721,7 +721,7 @@ section {
   .mouse-wrap {
     bottom: 5%;
   }
-}
+} */
 
 .mouse {
   width: 26px;
