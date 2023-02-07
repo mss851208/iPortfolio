@@ -715,13 +715,13 @@ section {
   .mouse-wrap {
     bottom: 5%;
   }
-}
+} */
 
 @media (max-width: 374px) {
   .mouse-wrap {
-    bottom: 5%;
+    display: none !important;
   }
-} */
+}
 
 .mouse {
   width: 26px;
